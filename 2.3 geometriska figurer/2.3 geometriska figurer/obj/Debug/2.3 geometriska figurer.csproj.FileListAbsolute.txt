@@ -1,2 +1,6 @@
 P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\bin\Debug\2.3 geometriska figurer.exe.config
 P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\obj\Debug\2.3 geometriska figurer.csprojResolveAssemblyReference.cache
+P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\bin\Debug\2.3 geometriska figurer.exe
+P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\bin\Debug\2.3 geometriska figurer.pdb
+P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\obj\Debug\2.3 geometriska figurer.exe
+P:\Git\1dv402-al222jf-2.3-geometriska-figurer\2.3 geometriska figurer\2.3 geometriska figurer\obj\Debug\2.3 geometriska figurer.pdb

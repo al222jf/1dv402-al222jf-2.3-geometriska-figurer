@@ -12,8 +12,6 @@ namespace _2._3_geometriska_figurer
     class Program
     {
         
-        
-        
         static void Main(string[] args)
         {
             int index;
@@ -38,24 +36,24 @@ namespace _2._3_geometriska_figurer
                             ViewShapewDetail(CreateShape(ShapeType.Rectangle));
                             break;
                     }
-
+                }
+                else
+                {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("FEL! Ange ett nummer mellan 0 och 2");
                     Console.ResetColor();
-
                 }
 
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("Tryck tangent för att fortsätta");
                 Console.ResetColor();
-                Console.Clear();
+                Console.ReadKey(true);
 
             } while (true);
         }
 
         private static Shape CreateShape(ShapeType shapeType)
         {
-
 
             double lenght = ReadDoubleGreaterThanZero("Ange längd: ");
             double width = ReadDoubleGreaterThanZero("Ange Bredden: ");
@@ -77,7 +75,6 @@ namespace _2._3_geometriska_figurer
             do
             {
 
-
                 Console.WriteLine(prompt);
                 double widthAndLenght = double.Parse(Console.ReadLine());
 
@@ -88,8 +85,6 @@ namespace _2._3_geometriska_figurer
 
                 Console.WriteLine("FEL! Ange ett tal större än 0");
             } while (true);
-
-            
         }
         private static void ViewMenu()
         {
@@ -103,7 +98,6 @@ namespace _2._3_geometriska_figurer
                 Console.WriteLine("-----------------------------------------------");
                 Console.Write("\nAnge menyval [0-2]: ");
                 Console.ResetColor();
-
         }
         private static void ViewShapewDetail(Shape shape)
         {
