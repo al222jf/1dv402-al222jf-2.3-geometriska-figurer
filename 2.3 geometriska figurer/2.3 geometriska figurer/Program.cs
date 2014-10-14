@@ -76,8 +76,6 @@ namespace _2._3_geometriska_figurer
 
             do
             {
-
-
                 try
                 {
                     double lenght = ReadDoubleGreaterThanZero("\nAnge längden: ");
@@ -102,9 +100,6 @@ namespace _2._3_geometriska_figurer
                     Console.ResetColor();
                 }
             } while (true);
-            
-
-            
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
