@@ -39,13 +39,14 @@ namespace _2._3_geometriska_figurer
                 }
                 else
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("FEL! Ange ett nummer mellan 0 och 2");
-                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("\nFEL! Ange ett nummer mellan 0 och 2");
                 }
 
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine("Tryck tangent för att fortsätta");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\nTryck tangent för att fortsätta");
                 Console.ResetColor();
                 Console.ReadKey(true);
 
@@ -54,20 +55,56 @@ namespace _2._3_geometriska_figurer
 
         private static Shape CreateShape(ShapeType shapeType)
         {
-
-            double lenght = ReadDoubleGreaterThanZero("Ange längd: ");
-            double width = ReadDoubleGreaterThanZero("Ange Bredden: ");
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
 
             if (shapeType == ShapeType.Elipse)
             {
-                Elipse myElipse = new Elipse(lenght, width);
-                return myElipse;
+                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
+                Console.WriteLine("                 {0}                   ", shapeType);
+                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
             }
             else
             {
-                Rectangle myRectangle = new Rectangle(lenght, width);
-                return myRectangle;
+                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
+                Console.WriteLine("                 {0}                ", shapeType);
+                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
             }
+
+            Console.ResetColor();
+
+            do
+            {
+
+
+                try
+                {
+                    double lenght = ReadDoubleGreaterThanZero("\nAnge längden: ");
+                    double width = ReadDoubleGreaterThanZero("Ange Bredden: ");
+
+                    if (shapeType == ShapeType.Elipse)
+                    {
+                        Elipse myElipse = new Elipse(lenght, width);
+                        return myElipse;
+                    }
+                    else
+                    {
+                        Rectangle myRectangle = new Rectangle(lenght, width);
+                        return myRectangle;
+                    }
+                }
+                catch
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("\nFEL! Ange bara siffror.");
+                    Console.ResetColor();
+                }
+            } while (true);
+            
+
+            
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
@@ -75,7 +112,7 @@ namespace _2._3_geometriska_figurer
             do
             {
 
-                Console.WriteLine(prompt);
+                Console.Write(prompt);
                 double widthAndLenght = double.Parse(Console.ReadLine());
 
                 if (widthAndLenght > 0)
@@ -83,6 +120,7 @@ namespace _2._3_geometriska_figurer
                     return widthAndLenght;
                 }
 
+                Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("FEL! Ange ett tal större än 0");
             } while (true);
         }
@@ -92,16 +130,25 @@ namespace _2._3_geometriska_figurer
                 Console.Clear();
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Geometriska figurer");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.WriteLine("0. Avsluta.\n\n1. Ellips.\n\n2. Rektangel.");
-                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
+                Console.WriteLine(" ║           Geometriska figurer        ║ ");
+                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
+                Console.ResetColor();
+                Console.WriteLine("\n0. Avsluta.\n\n1. Ellips.\n\n2. Rektangel.\n");
+                Console.WriteLine("-----------------------------------------");
                 Console.Write("\nAnge menyval [0-2]: ");
                 Console.ResetColor();
         }
         private static void ViewShapewDetail(Shape shape)
         {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n ╔══════════════════════════════════════╗ ");
+            Console.WriteLine(" ║               Detaljer               ║ ");
+            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
+            Console.ResetColor();
             Console.WriteLine(shape.ToString());
+            Console.WriteLine("-----------------------------------------");
         }
     }
 }

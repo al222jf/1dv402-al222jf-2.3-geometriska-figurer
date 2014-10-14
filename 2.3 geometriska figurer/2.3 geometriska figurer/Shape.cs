@@ -57,7 +57,7 @@ namespace _2._3_geometriska_figurer
 
         public string ToString()
         {
-            return string.Format("{0}:{1}\n{2}:{3}\n{4}:{5}\n{6}:{7}", "Längd", Lenght, "Bredd", Width, "Omkrets", Perimeter, "Area", Area);
+            return string.Format("\n{0,-7}:{1,10:F2}\n{2,-7}:{3,10:F2}\n{4,-7}:{5,10:F2}\n{6,-7}:{7,10:F2}\n", "Längd", Lenght, "Bredd", Width, "Omkrets", Perimeter, "Area", Area);
         }
     }
 }
