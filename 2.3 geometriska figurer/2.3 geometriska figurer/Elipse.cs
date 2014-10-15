@@ -16,7 +16,7 @@ namespace _2._3_geometriska_figurer
 
         public override double Perimeter
         {
-            get { return (Math.PI * Math.Sqrt(2 * (Lenght / 2) * (Lenght / 2) + 2 * (Width / 2) * (Width / 2))); }
+            get { return Math.PI * Math.Sqrt(2 * (Lenght / 2) * (Lenght / 2) + 2 * (Width / 2) * (Width / 2)); }
         }
 
         public Elipse(double length, double width)

@@ -61,18 +61,16 @@ namespace _2._3_geometriska_figurer
             Console.ForegroundColor = ConsoleColor.White;
 
             //Visar olika headers beroende på vilken "Shape" man valt.
+            Console.WriteLine(" ╔══════════════════════════════════════╗ ");
             if (shapeType == ShapeType.Elipse)
             {
-                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
                 Console.WriteLine("                 {0}                   ", shapeType);
-                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
             }
             else
             {
-                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
                 Console.WriteLine("                 {0}                ", shapeType);
-                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
             }
+            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
 
             Console.ResetColor();
 
@@ -83,13 +81,11 @@ namespace _2._3_geometriska_figurer
             //Skickar iväg längd och bredd till den valda "Shape".
             if (shapeType == ShapeType.Elipse)
             {
-                Elipse myElipse = new Elipse(lenght, width);
-                return myElipse;
+                return  new Elipse(lenght, width);
             }
             else
             {
-                Rectangle myRectangle = new Rectangle(lenght, width);
-                return myRectangle;
+                return new Rectangle(lenght, width);
             }
         }
 

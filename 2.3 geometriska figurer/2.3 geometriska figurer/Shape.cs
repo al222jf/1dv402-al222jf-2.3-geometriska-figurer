@@ -51,11 +51,11 @@ namespace _2._3_geometriska_figurer
 
         protected Shape(double lenght, double width)
         {
-            _lenght = lenght;
-            _width = width;
+            Lenght = lenght;
+            Width = width;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return string.Format("\n{0,-7}:{1,10:F2}\n{2,-7}:{3,10:F2}\n{4,-7}:{5,10:F2}\n{6,-7}:{7,10:F2}\n", "Längd", Lenght, "Bredd", Width, "Omkrets", Perimeter, "Area", Area);
         }
