@@ -14,13 +14,14 @@ namespace _2._3_geometriska_figurer
         
         static void Main(string[] args)
         {
+            //Index variabel som används till menyn.
             int index;
             
             do
             {
-
+                //Kallar på menyn som visas när man startar applikationen.
                 ViewMenu();
-            
+                //Om man använder någon mellan 0-2 så gör switch annars ska den visa felmedelanden.
                 if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index <=2)
                 {
                     switch(index)
@@ -29,7 +30,7 @@ namespace _2._3_geometriska_figurer
                             return;
 
                         case 1:
-                            ViewShapewDetail(CreateShape( ShapeType.Elipse));
+                            ViewShapewDetail(CreateShape(ShapeType.Elipse));
                             break;
 
                         case 2:
@@ -59,6 +60,7 @@ namespace _2._3_geometriska_figurer
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
 
+            //Visar olika headers beroende på vilken "Shape" man valt.
             if (shapeType == ShapeType.Elipse)
             {
                 Console.WriteLine(" ╔══════════════════════════════════════╗ ");
@@ -74,23 +76,40 @@ namespace _2._3_geometriska_figurer
 
             Console.ResetColor();
 
+            //Sparar input från ReadDoubleGreaterThanZero så att man inte kan skriva något mindre än 0.
+            double lenght = ReadDoubleGreaterThanZero("\nAnge längden: ");
+            double width = ReadDoubleGreaterThanZero("Ange Bredden: ");
+
+            //Skickar iväg längd och bredd till den valda "Shape".
+            if (shapeType == ShapeType.Elipse)
+            {
+                Elipse myElipse = new Elipse(lenght, width);
+                return myElipse;
+            }
+            else
+            {
+                Rectangle myRectangle = new Rectangle(lenght, width);
+                return myRectangle;
+            }
+        }
+
+        private static double ReadDoubleGreaterThanZero(string prompt)
+        {
+            //Ett felmedelanden om man skriver in text när man ska använda längd och bredd.
             do
             {
                 try
                 {
-                    double lenght = ReadDoubleGreaterThanZero("\nAnge längden: ");
-                    double width = ReadDoubleGreaterThanZero("Ange Bredden: ");
+                    Console.Write(prompt);
+                    double widthAndLenght = double.Parse(Console.ReadLine());
 
-                    if (shapeType == ShapeType.Elipse)
+                    if (widthAndLenght > 0)
                     {
-                        Elipse myElipse = new Elipse(lenght, width);
-                        return myElipse;
+                        return widthAndLenght;
                     }
-                    else
-                    {
-                        Rectangle myRectangle = new Rectangle(lenght, width);
-                        return myRectangle;
-                    }
+
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("FEL! Ange ett tal större än 0");
                 }
                 catch
                 {
@@ -101,41 +120,26 @@ namespace _2._3_geometriska_figurer
                 }
             } while (true);
         }
-
-        private static double ReadDoubleGreaterThanZero(string prompt)
-        {
-            do
-            {
-
-                Console.Write(prompt);
-                double widthAndLenght = double.Parse(Console.ReadLine());
-
-                if (widthAndLenght > 0)
-                {
-                    return widthAndLenght;
-                }
-
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.WriteLine("FEL! Ange ett tal större än 0");
-            } while (true);
-        }
         private static void ViewMenu()
         {
-           
-                Console.Clear();
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(" ╔══════════════════════════════════════╗ ");
-                Console.WriteLine(" ║           Geometriska figurer        ║ ");
-                Console.WriteLine(" ╚══════════════════════════════════════╝ ");
-                Console.ResetColor();
-                Console.WriteLine("\n0. Avsluta.\n\n1. Ellips.\n\n2. Rektangel.\n");
-                Console.WriteLine("-----------------------------------------");
-                Console.Write("\nAnge menyval [0-2]: ");
-                Console.ResetColor();
+            //Skriver ut menyn.
+
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" ╔══════════════════════════════════════╗ ");
+            Console.WriteLine(" ║           Geometriska figurer        ║ ");
+            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
+            Console.ResetColor();
+            Console.WriteLine("\n0. Avsluta.\n\n1. Ellips.\n\n2. Rektangel.\n");
+            Console.WriteLine("-----------------------------------------");
+            Console.Write("\nAnge menyval [0-2]: ");
+            Console.ResetColor();
         }
         private static void ViewShapewDetail(Shape shape)
         {
+            //Skriver ut detaljer om vald "Shape".
+
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n ╔══════════════════════════════════════╗ ");
