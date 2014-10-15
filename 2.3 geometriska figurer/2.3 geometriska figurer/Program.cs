@@ -103,13 +103,16 @@ namespace _2._3_geometriska_figurer
                     Console.Write(prompt);
                     double widthAndLenght = double.Parse(Console.ReadLine());
 
+                    //Kollar så att man inte skriver in något mindre än 0.
                     if (widthAndLenght > 0)
                     {
                         return widthAndLenght;
                     }
 
                     Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("FEL! Ange ett tal större än 0");
+                    Console.ResetColor();
                 }
                 catch
                 {
